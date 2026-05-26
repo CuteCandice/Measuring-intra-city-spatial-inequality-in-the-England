@@ -24,7 +24,7 @@ Spatial inequality has received much attention in recent years, with much studie
 In particular, cities are not internally homogeneous, in which neighbourhoods within the same urban area can differ dramatically. There exist some works explored this neighbourhood level inequality, in terms of income, housing conditions, health outcomes, and access to services~\cite{sarkar2024spatial,tammaru2014socio}. \citeauthor{suss2023measuring}~\cite{suss2023measuring} developed a measure of local economic inequality in the UK using housing value data, and \citeauthor{gao2024unpacking}~\cite{gao2024unpacking} examined the inequality in mobility-based exposure. Yet, these existing studies tend to be limited in either geographical (e.g.. Only focus on a few cities) or thematic scope (only focus on limited dimensions of inequalities). What remains missing is a comprehensive, England-wide analysis that systematically compares city-level inequality.
 
 
-In this paper, we adopt the Index of Multiple Deprivation (IMD) published by Ministry of Housing, Communities and Local Government (MHCLG) for such as analysis. IMD combines seven weighted domains, including income, employment, education, health, crime, barriers to housing and services, and the living environment, into a single relative deprivation score for each Lower Layer Super Output Area (LSOA) in England, as shown in Figure 1~\cite{mcclennan2025english}. There are 33,755 LOSAs in England, each containing an average population of roughly 1,500 residents, and making IMD to be one of the most spatially granular official deprivation measures available (ref to add). IMD has been widely used in research across public health~\cite{marmot2020health}, education~\cite{gorard2016cautionary}, and urban policy~\cite{norman2016changing}, and has informed official resource allocation decisions. The most recent release, IMD 2025, updates the established methodology of IMD 2019 with new input data, providing a current small-area deprivation snapshot well-suited to our city-level inequality analysis.
+In this paper, we adopt the Index of Multiple Deprivation (IMD) published by Ministry of Housing, Communities and Local Government (MHCLG) for such as analysis. IMD combines seven weighted domains, including income, employment, education, health, crime, barriers to housing and services, and the living environment, into a single relative deprivation score for each Lower Layer Super Output Area (LSOA) in England, as shown in Figure 1~\cite{mcclennan2025english}. There are 33,755 LOSAs in England, each containing an average population of roughly 1,500 residents, and making IMD to be one of the most spatially granular official deprivation measures available ~\cite{mcclennan2025english}. IMD has been widely used in research across public health~\cite{marmot2020health}, education~\cite{gorard2016cautionary}, and urban policy~\cite{norman2016changing}, and has informed official resource allocation decisions. The most recent release, IMD 2025, updates the established methodology of IMD 2019 with new input data, providing a current small-area deprivation snapshot well-suited to our city-level inequality analysis.
 
 \begin{figure}[t]
     \centering
@@ -132,11 +132,11 @@ A companion indicator, $p_{decile1\_2}$, extends the threshold to the most depri
 
 The third dimension addresses internal inequality in both its overall magnitude and its spatial structure, and it forms the methodological core of this study. The theoretical foundations of the two indicators in this dimension are discussed in detail in Section 4.4.
 
-The first indicator is the population-weighted Gini coefficient $G^*$, which measures the overall dispersion of IMD scores across LSOAs within a city under population weighting. Following Lerman and Yitzhaki (1989), a weighted midpoint cumulative distribution function is defined for each LSOA $i$ as
+The first indicator is the population-weighted Gini coefficient $G^*$, which measures the overall dispersion of IMD scores across LSOAs within a city under population weighting. Following Lerman and Yitzhaki~\cite{lerman1989improving}, a weighted midpoint cumulative distribution function is defined for each LSOA $i$ as
 
 $$F^*_Y(y_i) = \sum_{j=0}^{i-1} \pi_j + \frac{\pi_i}{2}, \quad i = 1, 2, \ldots, n$$
 
-where the $y_i$ are sorted in ascending order and $\pi_0 = 0$. The weighted Gini coefficient is then given by (Panzera \& Postiglione, 2020, Eq.~11)
+where the $y_i$ are sorted in ascending order and $\pi_0 = 0$. The weighted Gini coefficient is then given by ~\cite[Eq.~11]{panzera2020measuring}
 
 $$G^* = \frac{2 \cdot \text{Cov}_w\!\left(y,\, F^*_Y(y)\right)}{\mu^*_y}$$
 
@@ -146,7 +146,7 @@ $$\text{Cov}_w\!\left(y,\, F^*_Y(y)\right) = \sum_i \pi_i \left(y_i - \mu^*_y\ri
 
 with $\mu^*_y = \sum_i \pi_i y_i$ denoting the population-weighted mean and $\bar{F}^* = \sum_i \pi_i F^*_Y(y_i)$. A higher $G^*$ indicates greater disparity in deprivation across the neighbourhoods within a city.
 
-The second indicator is the population-weighted spatial Gini coefficient $G^*_S$, which extends $G^*$ by introducing a spatial dimension designed to isolate the component of inequality driven by neighbourhood spatial dependence (Panzera \& Postiglione, 2020, Eq.~12). The construction replaces the rank ordering of $y_i$ in the $G^*$ formula with the rank ordering of the spatially lagged variable $Wy_i$, a procedure known as spatial reranking (Dawkins, 2007). This identifies how much of the city's internal inequality stems from high-deprivation neighbourhoods being geographically adjacent to other high-deprivation neighbourhoods:
+The second indicator is the population-weighted spatial Gini coefficient $G^*_S$, which extends $G^*$ by introducing a spatial dimension designed to isolate the component of inequality driven by neighbourhood spatial dependence ~\cite[Eq.~12]{panzera2020measuring}. The construction replaces the rank ordering of $y_i$ in the $G^*$ formula with the rank ordering of the spatially lagged variable $Wy_i$, a procedure known as spatial reranking ~\cite{dawkins2007spatial}. This identifies how much of the city's internal inequality stems from high-deprivation neighbourhoods being geographically adjacent to other high-deprivation neighbourhoods:
 
 $$G^*_S = \frac{2 \cdot \text{Cov}_w\!\left(y,\, F^*_{WY}(Wy)\right)}{\mu^*_y}$$
 
@@ -164,16 +164,16 @@ Although $G^*$ accurately measures the overall dispersion of deprivation scores 
 
 To incorporate the spatial dimension into inequality measurement, this study adopts the Gini correlation-based spatial decomposition introduced by Panzera and Postiglione~\cite{panzera2020measuring}, which in turn builds on the Gini correlation measure of Schechtman and Yitzhaki (1987). The central intuition is that if deprivation within a city exhibits strong positive spatial autocorrelation, the deprivation score $y_i$ of a given LSOA should correlate positively with the population-weighted average deprivation score of its neighbours, that is, the spatial lag $Wy_i$. If deprivation is distributed close to randomly in space, this association approaches zero.
 
-On this basis, the population-weighted Gini coefficient admits a decomposition into spatial and non-spatial components (Panzera \& Postiglione, 2020, Eq.~14):
+On this basis, the population-weighted Gini coefficient admits a decomposition into spatial and non-spatial components ~\cite[Eq.~14]{panzera2020measuring}:
 
 $$G^* = G^*_S + G^*_{NS}$$
 
-where $G^*_{NS} = G^* - G^*_S$ and $0 \leq G^*_{NS} \leq 2G^*$ captures the residual inequality that cannot be attributed to the observed pattern of spatial dependence. The spatial share $\gamma^*$ is then defined as (Panzera \& Postiglione, 2020, Eq.~13)
+where $G^*_{NS} = G^* - G^*_S$ and $0 \leq G^*_{NS} \leq 2G^*$ captures the residual inequality that cannot be attributed to the observed pattern of spatial dependence. The spatial share $\gamma^*$ is then defined as ~\cite[Eq.~13]{panzera2020measuring}
 
 $$\gamma^* = \frac{G^*_S}{G^*} = \frac{\text{Cov}_w\!\left(y,\, F^*_{WY}(Wy)\right)}{\text{Cov}_w\!\left(y,\, F^*_Y(y)\right)}$$
 where $F^*_{WY}$ is ...
 
-The index $\gamma^*$ ranges over $[-1, 1]$ (Schechtman \& Yitzhaki, 1999) and can be interpreted directly as the proportion of total intra-city inequality explained by spatial clustering. When $\gamma^* = 1$, the ranking of $Wy$ is identical to that of $y$, so all inequality is driven by spatial concentration. When $\gamma^* = 0$, $y$ and $Wy$ are uncorrelated and inequality is entirely non-spatial in origin. Positive values of $\gamma^*$ reflect positive spatial autocorrelation, indicating that high-deprivation neighbourhoods tend to be located next to other high-deprivation neighbourhoods, and $\gamma^*$ therefore serves as a direct measure of spatial segregation.
+The index $\gamma^*$ ranges over $[-1, 1]$ ~\cite{schechtman1999gini} and can be interpreted directly as the proportion of total intra-city inequality explained by spatial clustering. When $\gamma^* = 1$, the ranking of $Wy$ is identical to that of $y$, so all inequality is driven by spatial concentration. When $\gamma^* = 0$, $y$ and $Wy$ are uncorrelated and inequality is entirely non-spatial in origin. Positive values of $\gamma^*$ reflect positive spatial autocorrelation, indicating that high-deprivation neighbourhoods tend to be located next to other high-deprivation neighbourhoods, and $\gamma^*$ therefore serves as a direct measure of spatial segregation.
 
 \subsubsection{Construction of the Spatial Weight Matrix}
 
